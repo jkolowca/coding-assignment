@@ -1,0 +1,31 @@
+@import './reset';
+@import './typography';
+@import './colors';
+
+a {
+    color: var(--primary);	
+    
+    &:hover {
+        color: var(--primary-dark);	
+    }
+}
+
+button {
+    background-color: var(--primary);	
+    color: var(--on-primary);
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    min-width: 80px;
+
+    &:hover:not(:disabled) {
+        background-color: var(--primary-dark);	
+    }
+
+    &:disabled {
+        opacity: 50%;
+        cursor: not-allowed;
+    }
+}

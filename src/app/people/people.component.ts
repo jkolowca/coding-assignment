@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Inject, PLATFORM_ID, PlatformRef } from '@angular/core';
-import { RandomUserService } from './random-user.service';
-import { TimerService } from './timer.service';
-import { PauseOnHoverDirective } from './pause-on-hover.directive'
+import { RandomUserService } from './services/random-user.service';
+import { TimerService } from './services/timer.service';
+import { PauseOnHoverDirective } from './directives/pause-on-hover.directive'
 import { isPlatformBrowser } from '@angular/common';
 
 @Component({
@@ -9,34 +9,9 @@ import { isPlatformBrowser } from '@angular/common';
   standalone: true,
   imports: [PauseOnHoverDirective],
   providers: [TimerService, RandomUserService],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `
-      @if (user(); as user) {
-        <img
-          pause-on-hover
-          srcset="
-            {{user.picture.medium}} 72w, 
-            {{user.picture.large}} 128w" 
-          sizes="
-            (max-width: 400px) 72px, 
-            128px"
-          alt="User picture"
-        />
-        <div class="text-block">
-          <span class="text-secondary">Hi, my name is</span>
-          <span class="text-primary" pause-on-hover>{{user.name.first}} {{user.name.last}}</span>
-        </div>
-      } @else {
-        <div class="img-placeholder"></div>
-        
-        <div class="text-block">
-          <span class="text-secondary">Hi, my name is</span>
-          <span class="text-primary" pause-on-hover>Loading...</span>
-        </div>
-      }
-      <button pause-on-hover (click)="resetTimer()" [disabled]="!user()">New</button>
-    `,
-  styleUrl: "./people.component.scss"
+  templateUrl: './people.component.html',
+  styleUrl: "./people.component.scss",
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PeopleComponent {
   user = this.randomUserService.user;
@@ -48,12 +23,17 @@ export class PeopleComponent {
   ) {
     // TODO: change to isNextRender in Angular 18
     if(isPlatformBrowser(platform)) {
-      timer.start().subscribe(() => randomUserService.fetchUser());
+      this.fetchUser();
+      timer.start().subscribe(() => this.fetchUser());
     }
   }
 
+  private fetchUser() {
+    this.randomUserService.fetchUser();
+  }
+
   resetTimer() {
-    console.log('click');
     this.timer.reset();
+    this.fetchUser();
   }
 }

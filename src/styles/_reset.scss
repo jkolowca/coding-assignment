@@ -1,13 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
-body {
-    font-family: Roboto, "Helvetica Neue", sans-serif; 
-}
+/* https://www.joshwcomeau.com/css/custom-css-reset/ */
 
-/* 1. Use a more-intuitive box-sizing model.*/
-  *, *::before, *::after {
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
     box-sizing: border-box;
   }
-  /* 2. Remove default margin */
+  /*
+    2. Remove default margin
+  */
   * {
     margin: 0;
   }
@@ -45,21 +46,3 @@ body {
   #root, #__next {
     isolation: isolate;
   }
-
-.text-primary {
-    font-size: 2rem;
-    font-weight: bold;
-}
-
-.text-secondary {
-    font-size: 1rem;
-    color: #797979;
-}
-
-a {
-    color: #4299e1;	
-    
-    &:hover {
-        color: #2b6cb0;	
-    }
-}

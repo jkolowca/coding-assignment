@@ -1,8 +1,8 @@
 import { Directive, HostListener } from '@angular/core';
-import { TimerService } from './timer.service';
+import { TimerService } from '../services/timer.service';
 
 @Directive({
-  selector: '[pause-on-hover]',
+  selector: '[app-pause-on-hover]',
   standalone: true
 })
 export class PauseOnHoverDirective {
