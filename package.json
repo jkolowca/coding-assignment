@@ -1,13 +1,12 @@
 {
-  "name": "dataedo-coding-assignment",
+  "name": "coding-assignment",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:dataedo-coding-assignment": "node dist/dataedo-coding-assignment/server/server.mjs"
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {

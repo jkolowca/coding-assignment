@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "dataedo-coding-assignment": {
+    "coding-assignment": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/dataedo-coding-assignment",
+            "outputPath": "dist/coding-assignment",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -35,9 +35,7 @@
             "scripts": [],
             "server": "src/main.server.ts",
             "prerender": true,
-            "ssr": {
-              "entry": "server.ts"
-            }
+            "ssr": false
           },
           "configurations": {
             "production": {
@@ -58,7 +56,9 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "ssr": false,
+              "prerender": false
             }
           },
           "defaultConfiguration": "production"
@@ -67,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "dataedo-coding-assignment:build:production"
+              "buildTarget": "coding-assignment:build:production"
             },
             "development": {
-              "buildTarget": "dataedo-coding-assignment:build:development"
+              "buildTarget": "coding-assignment:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -78,7 +78,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "dataedo-coding-assignment:build"
+            "buildTarget": "coding-assignment:build"
           }
         },
         "test": {
