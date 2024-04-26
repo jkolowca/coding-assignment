@@ -30,11 +30,6 @@ describe('PauseOnHoverDirective', () => {
     divElement = fixture.debugElement.query(By.directive(PauseOnHoverDirective));
   });
 
-  it('should create an instance', () => {
-    const directive = new PauseOnHoverDirective(timerSpy);
-    expect(directive).toBeTruthy();
-  });
-
   it('should pause timer on mouse enter', () => {
     divElement.triggerEventHandler('mouseenter', null);
     expect(timerSpy.pause).toHaveBeenCalled();

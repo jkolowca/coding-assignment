@@ -24,7 +24,7 @@ describe('RandomUserService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should fetch a random user', () => {
+  it('should fetch a user', () => {
     const mockResponse: RandomUserResponse = {
       results: [
         {

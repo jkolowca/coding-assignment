@@ -30,6 +30,23 @@ describe('TimerService', () => {
     });
   }));
 
+  it('should tick every 5 seconds', fakeAsync(() => {
+    TestBed.runInInjectionContext(() => {
+      const timer$ = service.start();
+      expect(timer$ instanceof Observable).toBe(true);
+
+      let counter = 0;
+      const subscription = timer$.subscribe((time) => {
+        counter += 1;
+        expect(time % 5000).toEqual(0);
+      });
+
+      tick(26000);
+      expect(counter).toEqual(5);
+      subscription.unsubscribe();
+    });
+  }));
+
   it('should pause the timer', fakeAsync(() => {
     TestBed.runInInjectionContext(() => {
       let counter = 0;
