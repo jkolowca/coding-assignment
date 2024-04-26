@@ -13,7 +13,7 @@ export interface RandomUser {
   
 export interface RandomUserResponse {
     results: RandomUser[];
-    info: {
+    info?: {
         seed: string;
         results: number;
         page: number;

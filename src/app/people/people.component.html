@@ -1,4 +1,4 @@
-@if (user(); as user) {
+@if (randomUser(); as user) {
     <img
         app-pause-on-hover
         srcset="
@@ -21,4 +21,4 @@
         <span class="text-primary">Loading...</span>
     </div>
 }
-<button app-pause-on-hover (click)="resetTimer()" [disabled]="!user()">New</button>
+<button app-pause-on-hover (click)="resetTimer()" [disabled]="!randomUser()">New</button>

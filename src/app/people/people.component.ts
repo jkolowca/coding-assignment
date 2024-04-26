@@ -14,14 +14,14 @@ import { isPlatformBrowser } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PeopleComponent {
-  user = this.randomUserService.user;
+  randomUser = this.randomUserService.randomUser;
 
   constructor(
     private randomUserService: RandomUserService, 
     private timer: TimerService, 
     @Inject(PLATFORM_ID) platform: PlatformRef
   ) {
-    // TODO: change to isNextRender in Angular 18
+    // Timer should not run during SSG. Use isNextRender in Angular 18.
     if(isPlatformBrowser(platform)) {
       this.fetchUser();
       timer.start().subscribe(() => this.fetchUser());

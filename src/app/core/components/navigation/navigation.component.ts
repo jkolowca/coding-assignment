@@ -8,5 +8,4 @@ import { Component } from '@angular/core';
   styleUrl: './navigation.component.scss'
 })
 export class NavigationComponent {
-
 }
