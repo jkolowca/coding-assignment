@@ -8,8 +8,8 @@ import { errorInterceptor } from './core/interceptors/error.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes), 
-    provideClientHydration(), 
-    provideHttpClient(withFetch(), withInterceptors([errorInterceptor]))
-  ]
+    provideRouter(routes),
+    provideClientHydration(),
+    provideHttpClient(withFetch(), withInterceptors([errorInterceptor])),
+  ],
 };

@@ -7,8 +7,8 @@ import { NavigationComponent } from './core/components/navigation/navigation.com
   standalone: true,
   imports: [RouterOutlet, RouterLink, RouterLinkActive, NavigationComponent],
   template: `
-    <app-navigation/>
-    <router-outlet/>
+    <app-navigation />
+    <router-outlet />
   `,
   styles: `
     :host {
@@ -17,7 +17,6 @@ import { NavigationComponent } from './core/components/navigation/navigation.com
       display: flex;
       flex-flow: column;
     }
-  `
+  `,
 })
-export class AppComponent {
-}
+export class AppComponent {}

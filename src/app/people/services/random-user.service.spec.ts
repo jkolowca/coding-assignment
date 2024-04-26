@@ -10,7 +10,7 @@ describe('RandomUserService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [RandomUserService]
+      providers: [RandomUserService],
     });
     service = TestBed.inject(RandomUserService);
     httpTestingController = TestBed.inject(HttpTestingController);
@@ -31,22 +31,24 @@ describe('RandomUserService', () => {
           picture: {
             large: 'test_picture_large',
             medium: 'test_picture_medium',
-            thumbnail: 'test_picture_thumbnail'
+            thumbnail: 'test_picture_thumbnail',
           },
           name: {
             title: 'Mr.',
             first: 'John',
-            last: 'Doe'
-          }
-        }
-      ]
+            last: 'Doe',
+          },
+        },
+      ],
     };
 
     service.fetchUser();
-    
-    const req = httpTestingController.expectOne('https://randomuser.me/api?inc=picture,%20name&results=1');
+
+    const req = httpTestingController.expectOne(
+      'https://randomuser.me/api?inc=picture,%20name&results=1'
+    );
     expect(req.request.method).toBe('GET');
-    
+
     req.flush(mockResponse);
 
     const randomUser = service.randomUser();

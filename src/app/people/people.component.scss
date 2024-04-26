@@ -1,31 +1,32 @@
 :host {
-    flex-grow: 1;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
+  flex-grow: 1;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
 }
 
 .text-block {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    gap: 0.5rem;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-img, .img-placeholder {
-    width: 128px;
-    height: 128px;
-    border-radius: 8px;
+img,
+.img-placeholder {
+  width: 128px;
+  height: 128px;
+  border-radius: 8px;
 
-    @media(max-width: 400px) {
-        width: 72px;
-        height: 72px;
-        border-radius: 4px;
-    }
+  @media (max-width: 400px) {
+    width: 72px;
+    height: 72px;
+    border-radius: 4px;
+  }
 }
 
 .img-placeholder {
-    background-color: var(--disabled);
+  background-color: var(--disabled);
 }

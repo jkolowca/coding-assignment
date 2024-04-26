@@ -3,14 +3,16 @@ import { TimerService } from '../services/timer.service';
 
 @Directive({
   selector: '[app-pause-on-hover]',
-  standalone: true
+  standalone: true,
 })
 export class PauseOnHoverDirective {
-  @HostListener("mouseenter") onMouseEnter() {
+  @HostListener('mouseenter') onMouseEnter() {
     this.timer.pause();
   }
-  @HostListener("mouseleave") onMouseLeave() {
+
+  @HostListener('mouseleave') onMouseLeave() {
     this.timer.resume();
   }
-  constructor(private timer: TimerService) { }
+
+  constructor(private timer: TimerService) {}
 }

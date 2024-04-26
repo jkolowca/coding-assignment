@@ -3,7 +3,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { map, tap, filter, Observable, interval } from 'rxjs';
 
 @Injectable({
-  providedIn: 'any'
+  providedIn: 'any',
 })
 export class TimerService {
   private readonly interval = 5000;
@@ -15,16 +15,16 @@ export class TimerService {
   start(): Observable<number> {
     this.currentTime = 0;
     this.paused = false;
-	  this.timer = this.createTimer();
+    this.timer = this.createTimer();
     return this.timer;
   }
 
   pause() {
-	  this.paused = true;
+    this.paused = true;
   }
 
   resume() {
-	  this.paused = false;
+    this.paused = false;
   }
 
   reset() {

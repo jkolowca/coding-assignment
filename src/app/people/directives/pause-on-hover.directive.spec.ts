@@ -5,7 +5,7 @@ import { PauseOnHoverDirective } from './pause-on-hover.directive';
 import { TimerService } from '../services/timer.service';
 
 @Component({
-    template: `<div app-pause-on-hover></div>`
+  template: `<div app-pause-on-hover></div>`,
 })
 class TestComponent {}
 
@@ -15,14 +15,17 @@ describe('PauseOnHoverDirective', () => {
   let timerSpy: TimerService;
 
   beforeEach(() => {
-    timerSpy = jasmine.createSpyObj<TimerService>('TimerService', {pause: undefined, resume: undefined});
-    
+    timerSpy = jasmine.createSpyObj<TimerService>('TimerService', {
+      pause: undefined,
+      resume: undefined,
+    });
+
     TestBed.configureTestingModule({
       imports: [PauseOnHoverDirective],
       declarations: [TestComponent],
-      providers: [{provide: TimerService, useValue: timerSpy}]
+      providers: [{ provide: TimerService, useValue: timerSpy }],
     });
-    
+
     fixture = TestBed.createComponent(TestComponent);
     divElement = fixture.debugElement.query(By.directive(PauseOnHoverDirective));
   });

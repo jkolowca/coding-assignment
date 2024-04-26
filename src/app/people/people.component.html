@@ -1,24 +1,24 @@
 @if (randomUser(); as user) {
-    <img
-        app-pause-on-hover
-        srcset="
-            {{user.picture.medium}} 72w, 
-            {{user.picture.large}} 128w" 
-        sizes="
-            (max-width: 400px) 72px, 
-            128px"
-        alt="User picture"
-    />
-    <div class="text-block">
-        <span class="text-secondary">Hi, my name is</span>
-        <span class="text-primary" app-pause-on-hover>{{user.name.first}} {{user.name.last}}</span>
-    </div>
+  <img
+    app-pause-on-hover
+    srcset="
+      {{user.picture.medium}} 72w, 
+      {{user.picture.large}} 128w" 
+    sizes="
+      (max-width: 400px) 72px, 
+      128px"
+    alt="User picture"
+  />
+  <div class="text-block">
+    <span class="text-secondary">Hi, my name is</span>
+    <span class="text-primary" app-pause-on-hover>{{user.name.first}} {{user.name.last}}</span>
+  </div>
 } @else {
-    <div class="img-placeholder"></div>
+  <div class="img-placeholder"></div>
 
-    <div class="text-block">
-        <span class="text-secondary">Hi, my name is</span>
-        <span class="text-primary">Loading...</span>
-    </div>
+  <div class="text-block">
+    <span class="text-secondary">Hi, my name is</span>
+    <span class="text-primary">Loading...</span>
+  </div>
 }
 <button app-pause-on-hover (click)="resetTimer()" [disabled]="!randomUser()">New</button>
